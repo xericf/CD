@@ -1,0 +1,12 @@
+
+#input{
+  color: blue;
+}
+
+canvas {
+  border: solid 1px;
+}
+
+code {
+  font-size: 20px;
+}

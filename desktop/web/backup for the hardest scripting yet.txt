@@ -1,0 +1,109 @@
+
+function convertToRoman(num) { //should have a thing that looks at the number in its place and then loops it for that number
+ var place = 0;
+  var total = num;  
+  var add;
+  var arr = num.toString().split("");
+  var down = arr;
+  var interval;
+  var newArr = [];
+  var its;
+  var numerals = { // have if statements inside here
+    "I": function(n){
+      add = 1;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){
+      interval += add;
+      newArr.push("I");
+      }
+      }
+    },
+    "V": function(n){  // THIS IS LE PROBLEM TO HAVE THE LIL SHIT CHARACTER BEHIND IT
+      add = 5;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){ // or if it's behind an I, remember if it's like 4 then it's IV
+      interval += add;
+      newArr.push("V");
+      }
+      }
+      
+    },
+    "X": function(n){
+      add = 10;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){
+      interval+= add;
+      newArr.push("X");
+      }
+      }
+    },
+    "L": function(n){
+      add = 50;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){
+        interval+= add;
+        newArr.push("L");
+      }
+      }
+    },
+    "C": function(n){
+    add = 100;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){
+        interval += add;
+        newArr.push("C");
+      }
+      }
+    },
+    "D": function(n){
+      add = 500;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){
+        interval+=add;
+        newArr.push("D");
+      }
+      }
+    },
+      
+    "M": function(n){
+    add = 1000;
+      for(its = 0; its < n; its++){
+      if(interval + add <= num){
+        interval+= add;
+        newArr.push("M");
+      }
+      }
+    }
+       
+  };
+  // dont even need this lol
+  function meme(oi){
+    down = down.filter(function(val){
+      return val !== oi;
+    });
+  }
+  
+ // for(var j = 0; j < arr.length; j++){
+    // do length-1 for the dank thing and thats place value always start from last to top ez
+    var iNumber = Number(arr[down.length - 1]);
+    interval = 0;
+    
+    while(interval < num){ // this place was i number
+      numerals.M(iNumber); // make like a for loop or something for individuals either here or in the function itself using inumber
+      numerals.D(iNumber);
+      numerals.C(iNumber);
+      numerals.L(iNumber);
+      numerals.X(iNumber);
+      numerals.V(iNumber);
+      numerals.I(iNumber);
+           
+
+    }
+    meme(iNumber.toString()); // dont even need this too
+//  }
+  
+ return newArr.join("");
+
+}
+
+convertToRoman(500);
